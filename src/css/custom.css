@@ -1,0 +1,31 @@
+/* 数式用のKaTeXのスタイル（rehype-katexと同じ版） */
+@import 'katex/dist/katex.min.css';
+
+:root {
+  --ifm-color-primary: #2e6f8e;
+  --ifm-color-primary-dark: #296480;
+  --ifm-color-primary-darker: #275e79;
+  --ifm-color-primary-darkest: #204e63;
+  --ifm-color-primary-light: #337a9c;
+  --ifm-color-primary-lighter: #3680a3;
+  --ifm-color-primary-lightest: #3f91b8;
+  --ifm-code-font-size: 95%;
+  --ifm-font-family-base: system-ui, -apple-system, 'Segoe UI', 'Hiragino Sans', 'Yu Gothic UI', 'Noto Sans JP', sans-serif;
+}
+
+[data-theme='dark'] {
+  --ifm-color-primary: #6bb3d6;
+  --ifm-color-primary-dark: #52a6cf;
+  --ifm-color-primary-darker: #45a0cb;
+  --ifm-color-primary-darkest: #3185ad;
+  --ifm-color-primary-light: #84c0dd;
+  --ifm-color-primary-lighter: #91c7e1;
+  --ifm-color-primary-lightest: #b7dbec;
+}
+
+/* 長い数式は横にスクロールさせ、ページ全体がはみ出さないようにする */
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 0.25rem 0;
+}

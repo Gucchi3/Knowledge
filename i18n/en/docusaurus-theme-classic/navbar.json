@@ -1,0 +1,18 @@
+{
+  "title": {
+    "message": "Knowledge",
+    "description": "The title in the navbar"
+  },
+  "logo.alt": {
+    "message": "Knowledge",
+    "description": "The alt text of navbar logo"
+  },
+  "item.label.量子化": {
+    "message": "Quantization",
+    "description": "Navbar item with label 量子化"
+  },
+  "item.label.GitHub": {
+    "message": "GitHub",
+    "description": "Navbar item with label GitHub"
+  }
+}

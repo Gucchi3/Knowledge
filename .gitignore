@@ -1,0 +1,11 @@
+# 依存関係とビルドの出力
+node_modules/
+build/
+.docusaurus/
+.cache-loader/
+
+# OSとエディタのファイル
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

@@ -1,0 +1,26 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.quantization.category.量子化の基礎": {
+    "message": "Quantization basics",
+    "description": "The label for category '量子化の基礎' in sidebar 'quantization'"
+  },
+  "sidebar.quantization.category.スケールの決め方": {
+    "message": "Setting the scales",
+    "description": "The label for category 'スケールの決め方' in sidebar 'quantization'"
+  },
+  "sidebar.quantization.category.デバイス上の整数演算": {
+    "message": "Integer math on the device",
+    "description": "The label for category 'デバイス上の整数演算' in sidebar 'quantization'"
+  },
+  "sidebar.quantization.category.量子化した層": {
+    "message": "Quantized layers",
+    "description": "The label for category '量子化した層' in sidebar 'quantization'"
+  },
+  "sidebar.quantization.category.参考文献": {
+    "message": "References",
+    "description": "The label for category '参考文献' in sidebar 'quantization'"
+  }
+}
