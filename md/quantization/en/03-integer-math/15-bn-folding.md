@@ -1,0 +1,33 @@
+# BatchNorm folding
+
+> Merge a BatchNorm into the conv before it, so the device runs one layer instead of two.
+
+After training, the parameters of a BatchNorm (BN) are fixed numbers. So a BN right after a conv or linear layer can be merged into that layer's weights and bias. This is called folding.
+
+## The math
+
+A linear layer and a BN after it compute:
+
+```math
+y = W x + b, \qquad z = \frac{\gamma}{\sigma}\,(y - \mu) + \beta, \qquad \sigma = \sqrt{v + \epsilon}
+```
+
+Here $`\mu`$ and $`v`$ are the running mean and variance of the BN, and $`\gamma`$ and $`\beta`$ are its learned scale and shift. Put $`y`$ into $`z`$:
+
+```math
+z = \underbrace{\frac{\gamma}{\sigma}\,W}_{W_{fold}}\, x \;+\; \underbrace{\frac{\gamma}{\sigma}\,(b - \mu) + \beta}_{b_{fold}}
+```
+
+So $`z = W_{fold}\,x + b_{fold}`$: one layer with new weights and a new bias. For a conv, $`\gamma / \sigma`$ scales each output channel of the weight.
+
+## Why fold before quantizing
+
+- The device runs one layer instead of two, and needs no BN at all.
+- The weights that the device uses are the folded ones. If you quantize the weights before folding, folding changes them again after quantization, and the codes no longer fit the format.
+
+> [!TIP]
+> The usual order is: train in float, fold every BN, load the folded weights into the quantized model, and then run QAT. A model can even use BN in place of LayerNorm, so that every normalization folds away.
+
+---
+
+← Previous: [Requantization](14-requantization.md) | [Index](../README.md) | Next: [Packing and SIMD](16-packing-simd.md) →
