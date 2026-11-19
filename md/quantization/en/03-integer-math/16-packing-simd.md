@@ -34,4 +34,4 @@ FP4 codes can be computed on integer hardware too: each FP4 value is an integer 
 
 ---
 
-← Previous: [BatchNorm folding](16-bn-folding.md) | [Index](../README.md) | Next: [ReLU and ReLU6](../04-quantized-layers/18-activations.md) →
+← Previous: [BatchNorm folding](15-bn-folding.md) | [Index](../README.md) | Next: [ReLU and ReLU6](../04-quantized-layers/17-activations.md) →

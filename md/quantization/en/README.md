@@ -1,7 +1,7 @@
 # Quantization notes
 
-Notes on quantizing neural networks for embedded devices, with a focus on integer-only inference.
-Each page covers one topic, and the pages are grouped into four sections. Start with the big picture in [What is quantization?](01-basics/01-what-is-quantization.md), then read in order. Every page ends with links to the previous and next pages.
+Notes on quantizing neural networks and running them on embedded devices with integer math only.
+The notes have five sections, and each page covers one topic. Start with the big picture in [What is quantization?](01-basics/01-what-is-quantization.md), then read the pages in order. Every page ends with links to the previous and next pages.
 
 > [!NOTE]
 > A Japanese version is in [../jp/](../jp/README.md).
@@ -23,19 +23,19 @@ Each page covers one topic, and the pages are grouped into four sections. Start 
 10. [Static and dynamic scales](02-setting-scales/10-static-dynamic.md)
 11. [PTQ](02-setting-scales/11-ptq.md)
 12. [QAT, STE, and LSQ](02-setting-scales/12-qat.md)
-13. [Shared scales](02-setting-scales/13-shared-scales.md)
 
 ## [Integer math on the device](03-integer-math/README.md)
 
-14. [Integer inference](03-integer-math/14-integer-inference.md)
-15. [Requantization](03-integer-math/15-requantization.md)
-16. [BatchNorm folding](03-integer-math/16-bn-folding.md)
-17. [Packing and SIMD](03-integer-math/17-packing-simd.md)
+13. [Integer inference](03-integer-math/13-integer-inference.md)
+14. [Requantization](03-integer-math/14-requantization.md)
+15. [BatchNorm folding](03-integer-math/15-bn-folding.md)
+16. [Packing and SIMD](03-integer-math/16-packing-simd.md)
 
 ## [Quantized layers](04-quantized-layers/README.md)
 
-18. [ReLU and ReLU6](04-quantized-layers/18-activations.md)
-19. [Residual add](04-quantized-layers/19-residual-add.md)
+17. [ReLU and ReLU6](04-quantized-layers/17-activations.md)
+18. [Residual add](04-quantized-layers/18-residual-add.md)
+19. [Shared scales](04-quantized-layers/19-shared-scales.md)
 20. [Average pooling](04-quantized-layers/20-average-pooling.md)
 21. [SimA attention](04-quantized-layers/21-sima-attention.md)
 

@@ -30,4 +30,4 @@ So $`z = W_{fold}\,x + b_{fold}`$: one layer with new weights and a new bias. Fo
 
 ---
 
-← Previous: [Requantization](15-requantization.md) | [Index](../README.md) | Next: [Packing and SIMD](17-packing-simd.md) →
+← Previous: [Requantization](14-requantization.md) | [Index](../README.md) | Next: [Packing and SIMD](16-packing-simd.md) →

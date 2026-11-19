@@ -20,7 +20,7 @@ With one scale for each channel, each channel uses all its codes. This is why we
 ## What it costs
 
 - **Memory.** Each scale must be stored. For per-channel weights this is tiny. For groups of 16 values, it adds a scale for every 16 numbers. Formats like NVFP4 store these scales in 8 bits to keep the cost small.
-- **Integer math.** A device turns each scale into a multiplier and a shift for [requantization](../03-integer-math/15-requantization.md). Per-channel scales need a small table of multipliers and shifts, one for each output channel.
+- **Integer math.** A device turns each scale into a multiplier and a shift for [requantization](../03-integer-math/14-requantization.md). Per-channel scales need a small table of multipliers and shifts, one for each output channel.
 
 ## Which axis
 

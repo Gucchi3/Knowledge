@@ -73,4 +73,4 @@ Some devices use a different form. CMSIS-NN and TFLite use a 31-bit multiplier a
 
 ---
 
-← Previous: [Integer inference](14-integer-inference.md) | [Index](../README.md) | Next: [BatchNorm folding](16-bn-folding.md) →
+← Previous: [Integer inference](13-integer-inference.md) | [Index](../README.md) | Next: [BatchNorm folding](15-bn-folding.md) →

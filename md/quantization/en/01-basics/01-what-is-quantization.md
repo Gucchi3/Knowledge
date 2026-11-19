@@ -57,7 +57,7 @@ Three typical combinations:
 
 ## Integer-only inference
 
-On a device with integer hardware, quantization goes one step further: every layer computes with integers only, from the input image to the output. The device never needs a float. [Integer inference](../03-integer-math/14-integer-inference.md) and [Requantization](../03-integer-math/15-requantization.md) show how.
+On a device with integer hardware, quantization goes one step further: every layer computes with integers only, from the input image to the output. The device never needs a float. [Integer inference](../03-integer-math/13-integer-inference.md) and [Requantization](../03-integer-math/14-requantization.md) show how.
 
 ## How to read these notes
 
@@ -66,7 +66,11 @@ The pages are meant to be read in order:
 1. [Quantization basics](README.md) (this section): the rule that turns a real number into an integer, and the value grid, placement, range, and granularity.
 2. [Setting the scales](../02-setting-scales/README.md): timing and training.
 3. [Integer math on the device](../03-integer-math/README.md): the steps that run a quantized model with integers only.
-4. [Quantized layers](../04-quantized-layers/README.md): ReLU, residual adds, pooling, and attention in integer math.
+4. [Quantized layers](../04-quantized-layers/README.md): ReLU, residual adds and shared scales, pooling, and attention in integer math.
+
+---
+
+[Index](../README.md) | Next: [Scale and zero point](02-scale-zero-point.md) →
 
 ---
 

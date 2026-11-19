@@ -20,7 +20,7 @@ A plain right shift takes the floor: it always rounds down. Every value moves do
 > [!WARNING]
 > Do not requantize with a plain right shift. The bias of half a step adds up through the layers.
 
-The other three rules round to the nearest code, so their errors go up as often as down, and average out to about 0. On integer hardware, "half up" costs only one addition: add half a step ($`2^{n-1}`$ before a shift by $`n`$), then shift. [Requantization](../03-integer-math/15-requantization.md) uses this.
+The other three rules round to the nearest code, so their errors go up as often as down, and average out to about 0. On integer hardware, "half up" costs only one addition: add half a step ($`2^{n-1}`$ before a shift by $`n`$), then shift. [Requantization](../03-integer-math/14-requantization.md) uses this.
 
 ## Halfway values are rare, but not that rare
 

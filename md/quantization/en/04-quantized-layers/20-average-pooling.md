@@ -29,4 +29,4 @@ An average is exactly halfway between two codes quite often. For example, the av
 
 ---
 
-← Previous: [Residual add](19-residual-add.md) | [Index](../README.md) | Next: [SimA attention](21-sima-attention.md) →
+← Previous: [Shared scales](19-shared-scales.md) | [Index](../README.md) | Next: [SimA attention](21-sima-attention.md) →

@@ -1,15 +1,15 @@
 # Integer math on the device
 
-How a quantized model runs with integers only, with no floats: multiply-adds and INT32 sums, requantization with a multiplier and a shift, BatchNorm folding, and packing and SIMD.
+How a quantized model runs with integers only, without floating point: multiply-accumulate and INT32 sums, requantization (multiplier and shift), BatchNorm folding, and packing and SIMD.
 
-After this section, you can follow one layer on a device as integer operations, down to the bit widths.
+After this section, you can follow one conv or linear layer on the device as integer math, down to the bit widths.
 
 ## Pages
 
-14. [Integer inference](14-integer-inference.md)
-15. [Requantization](15-requantization.md)
-16. [BatchNorm folding](16-bn-folding.md)
-17. [Packing and SIMD](17-packing-simd.md)
+13. [Integer inference](13-integer-inference.md)
+14. [Requantization](14-requantization.md)
+15. [BatchNorm folding](15-bn-folding.md)
+16. [Packing and SIMD](16-packing-simd.md)
 
 Next section: [Quantized layers](../04-quantized-layers/README.md)
 

@@ -45,7 +45,7 @@ GPUs add up the blocks in FP32. A device with integer hardware can do it exactly
 2. **Block scales.** Each E4M3 scale is an integer mantissa $`M`$ (up to 15) times a power of two: $`M \cdot 2^E`$. The product of two block scales is $`(M_a M_w) \cdot 2^{E_a + E_w}`$.
 3. **One block.** Multiply the block sum by $`M_a M_w`$, and shift it left by $`E_a + E_w`$ plus a fixed offset. This is an integer.
 4. **All the blocks.** Add the block values in one wide integer accumulator, with no rounding. For 1024 inputs, 54 bits are enough.
-5. **Output.** The tensor scales are fixed, so they go into the multiplier and shift of a normal [requantization](../03-integer-math/15-requantization.md), with one rounding at the end.
+5. **Output.** The tensor scales are fixed, so they go into the multiplier and shift of a normal [requantization](../03-integer-math/14-requantization.md), with one rounding at the end.
 
 Since nothing is rounded before the end, the result does not depend on the order of the sums. A device and the training code get exactly the same codes.
 

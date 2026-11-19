@@ -26,7 +26,7 @@ The upper code is a constant, computed once from the fixed scale. If 6 is not ex
 
 ## Run it on the sums
 
-In a conv or linear layer, the activation can run on the INT32 sums, before the [requantization](../03-integer-math/15-requantization.md):
+In a conv or linear layer, the activation can run on the INT32 sums, before the [requantization](../03-integer-math/14-requantization.md):
 
 - The sums are exact, so $`\max(acc, 0)`$ is exact too.
 - The requantization clamps its output anyway. So a device can merge ReLU into it: just clamp from below at the zero point of the output instead of the bottom of the format.
@@ -39,4 +39,4 @@ After ReLU, no value is negative. So the output can use an unsigned format, such
 
 ---
 
-← Previous: [Packing and SIMD](../03-integer-math/17-packing-simd.md) | [Index](../README.md) | Next: [Residual add](19-residual-add.md) →
+← Previous: [Packing and SIMD](../03-integer-math/16-packing-simd.md) | [Index](../README.md) | Next: [Residual add](18-residual-add.md) →

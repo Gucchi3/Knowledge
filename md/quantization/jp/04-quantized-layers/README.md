@@ -1,13 +1,14 @@
 # 量子化した層
 
-畳み込みと線形層以外の層を、整数演算で計算する方法を扱う。ReLU、残差加算、平均プーリング、softmaxを使わないattention（SimA）。
+畳み込みと線形層以外の層を整数で計算する方法を扱う。ReLU、残差加算と共有スケール、平均プーリング、softmaxを使わないattention（SimA）である。
 
-読み終えると、CNNや小さなTransformerを最初から最後まで整数で動かすのに必要な部品がそろう。
+このセクションまで読むと、CNNや小さなTransformerを入力から出力まで整数で動かすための部品がそろう。
 
 ## ページ
 
-18. [ReLUとReLU6](18-activations.md)
-19. [残差加算](19-residual-add.md)
+17. [ReLUとReLU6](17-activations.md)
+18. [残差加算](18-residual-add.md)
+19. [共有スケール](19-shared-scales.md)
 20. [平均プーリング](20-average-pooling.md)
 21. [SimA attention](21-sima-attention.md)
 

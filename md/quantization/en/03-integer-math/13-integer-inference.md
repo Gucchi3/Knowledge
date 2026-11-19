@@ -19,7 +19,7 @@ The sum is pure integer math. The scales stay outside, as one factor $`S_w S_x`$
 1. **Multiply and add (MAC).** Multiply each input code by its weight code, and add up the products in a wide register, the **accumulator**.
 2. **Add the bias.** The bias is stored as an integer with the scale of the sum, $`S_w S_x`$, so it adds to the accumulator directly: $`q_b = \mathrm{round}(b / (S_w S_x))`$.
 3. **Activation.** ReLU keeps the sums at or above 0. It works on the accumulator, before rounding.
-4. **Requantize.** The sum has the tiny scale $`S_w S_x`$. The next layer wants 8-bit codes with its own scale $`S_y`$. [Requantization](15-requantization.md) rescales the sum with an integer multiplier and a shift, and rounds it into the output format.
+4. **Requantize.** The sum has the tiny scale $`S_w S_x`$. The next layer wants 8-bit codes with its own scale $`S_y`$. [Requantization](14-requantization.md) rescales the sum with an integer multiplier and a shift, and rounds it into the output format.
 
 The output codes go to the next layer, and the steps repeat.
 
@@ -33,4 +33,4 @@ The last layer often skips requantization, and returns its INT32 sums as the log
 
 ---
 
-← Previous: [Shared scales](../02-setting-scales/13-shared-scales.md) | [Index](../README.md) | Next: [Requantization](15-requantization.md) →
+← Previous: [QAT, STE, and LSQ](../02-setting-scales/12-qat.md) | [Index](../README.md) | Next: [Requantization](14-requantization.md) →

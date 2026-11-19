@@ -12,7 +12,7 @@ A residual add computes $`y = a + b`$. With codes $`q_a`$ and $`q_b`$ and scales
 y = S_a\, q_a + S_b\, q_b
 ```
 
-If $`S_a \ne S_b`$, the codes cannot be added directly. The device must rescale at least one of them with a multiplier and a shift, and round, before it adds ([Residual add](../04-quantized-layers/19-residual-add.md)).
+If $`S_a \ne S_b`$, the codes cannot be added directly. The device must rescale at least one of them with a multiplier and a shift, and round, before it adds ([Residual add](18-residual-add.md)).
 
 If $`S_a = S_b = S`$, the add is just:
 
@@ -41,4 +41,4 @@ The shared scale must fit all its tensors at once, so it follows the widest of t
 
 ---
 
-← Previous: [QAT, STE, and LSQ](12-qat.md) | [Index](../README.md) | Next: [Integer inference](../03-integer-math/14-integer-inference.md) →
+← Previous: [Residual add](18-residual-add.md) | [Index](../README.md) | Next: [Average pooling](20-average-pooling.md) →

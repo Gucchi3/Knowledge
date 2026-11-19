@@ -1,6 +1,6 @@
 # References
 
-The papers behind the methods on these pages.
+The sources of the methods in these notes.
 
 ## Pages
 

@@ -1,7 +1,7 @@
 # 量子化ノート
 
-組み込み機器向けにニューラルネットワークを量子化するためのノートである。特に、整数演算だけで推論する方法を中心に扱う。
-各ページは一つの話題を扱い、4つのセクションに分かれている。まず[量子化とは](01-basics/01-what-is-quantization.md)で全体像をつかみ、そこから順に読むことを想定している。各ページの末尾に前後のページへのリンクがある。
+ニューラルネットワークを量子化し、組み込み機器で整数演算だけで動かすまでをまとめたノートである。
+全体は5つのセクションに分かれ、各ページで1つの話題を扱う。最初の[量子化とは](01-basics/01-what-is-quantization.md)で全体像をつかみ、あとは番号順に読めばよいように書いてある。各ページの末尾には、前後のページへのリンクを置いた。
 
 > [!NOTE]
 > 英語版は [../en/](../en/README.md) にある。
@@ -23,19 +23,19 @@
 10. [静的スケールと動的スケール](02-setting-scales/10-static-dynamic.md)
 11. [PTQ](02-setting-scales/11-ptq.md)
 12. [QAT、STE、LSQ](02-setting-scales/12-qat.md)
-13. [共有スケール](02-setting-scales/13-shared-scales.md)
 
 ## [デバイス上の整数演算](03-integer-math/README.md)
 
-14. [整数推論](03-integer-math/14-integer-inference.md)
-15. [再量子化](03-integer-math/15-requantization.md)
-16. [BatchNormの畳み込み](03-integer-math/16-bn-folding.md)
-17. [パッキングとSIMD](03-integer-math/17-packing-simd.md)
+13. [整数推論](03-integer-math/13-integer-inference.md)
+14. [再量子化](03-integer-math/14-requantization.md)
+15. [BatchNormの畳み込み](03-integer-math/15-bn-folding.md)
+16. [パッキングとSIMD](03-integer-math/16-packing-simd.md)
 
 ## [量子化した層](04-quantized-layers/README.md)
 
-18. [ReLUとReLU6](04-quantized-layers/18-activations.md)
-19. [残差加算](04-quantized-layers/19-residual-add.md)
+17. [ReLUとReLU6](04-quantized-layers/17-activations.md)
+18. [残差加算](04-quantized-layers/18-residual-add.md)
+19. [共有スケール](04-quantized-layers/19-shared-scales.md)
 20. [平均プーリング](04-quantized-layers/20-average-pooling.md)
 21. [SimA attention](04-quantized-layers/21-sima-attention.md)
 

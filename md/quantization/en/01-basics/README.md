@@ -1,6 +1,6 @@
 # Quantization basics
 
-The rule that turns real numbers into integer codes, and what that rule decides: the value grid, the placement, the range, and the granularity. Start with the big picture in "What is quantization?", then read in order.
+The rule that turns real numbers into integer codes, and what that rule decides: the value grid, the placement, the range, and the granularity.
 
 After this section, you know how a tensor in INT8 or NVFP4 is represented, and where its errors come from.
 

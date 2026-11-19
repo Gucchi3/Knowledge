@@ -51,4 +51,4 @@ Inside the range, the gradient pushes $`S`$ to cut the rounding error. Outside, 
 
 ---
 
-← Previous: [PTQ](11-ptq.md) | [Index](../README.md) | Next: [Shared scales](13-shared-scales.md) →
+← Previous: [PTQ](11-ptq.md) | [Index](../README.md) | Next: [Integer inference](../03-integer-math/13-integer-inference.md) →

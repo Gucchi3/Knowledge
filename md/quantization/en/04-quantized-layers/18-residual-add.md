@@ -12,7 +12,7 @@ The sum is quantized with its own scale $`S_y`$. In real terms:
 q_y = \frac{S_a (q_a - Z_a) + S_b (q_b - Z_b)}{S_y} + Z_y
 ```
 
-Each input needs its own ratio, $`S_a / S_y`$ and $`S_b / S_y`$. On a device, each ratio becomes an integer multiplier and a shift, as in [requantization](../03-integer-math/15-requantization.md):
+Each input needs its own ratio, $`S_a / S_y`$ and $`S_b / S_y`$. On a device, each ratio becomes an integer multiplier and a shift, as in [requantization](../03-integer-math/14-requantization.md):
 
 ```math
 \frac{S_a}{S_y} \approx \frac{M_a}{2^{n_a}}, \qquad \frac{S_b}{S_y} \approx \frac{M_b}{2^{n_b}}
@@ -33,8 +33,8 @@ The sum is exact until the last step, so the error is at most half a step.
 
 ## A cheaper add with shared scales
 
-If the two inputs and the output share one scale, all the ratios are 1, and the add is just $`q_a + q_b`$ with saturation. [Shared scales](../02-setting-scales/13-shared-scales.md) shows how a transformer block uses this.
+If the two inputs and the output share one scale, all the ratios are 1, and the add is just $`q_a + q_b`$ with saturation. [Shared scales](19-shared-scales.md) shows how a transformer block uses this.
 
 ---
 
-← Previous: [ReLU and ReLU6](18-activations.md) | [Index](../README.md) | Next: [Average pooling](20-average-pooling.md) →
+← Previous: [ReLU and ReLU6](17-activations.md) | [Index](../README.md) | Next: [Shared scales](19-shared-scales.md) →
