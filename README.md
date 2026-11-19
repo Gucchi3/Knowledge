@@ -48,4 +48,4 @@ npm run serve      # ビルドしたものを開く。言語の切り替えも�
 
 ## 公開
 
-`.github/workflows/deploy.yml` でGitHub Pagesに公開できる。privateリポジトリのPagesは有料プランが必要なので、今は手動実行だけにしてある。
+mainにpushすると `.github/workflows/deploy.yml` が https://gucchi3.github.io/Knowledge/ に公開する。

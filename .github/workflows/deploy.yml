@@ -1,12 +1,9 @@
-# website をビルドし、GitHub Pages に公開する。
-# privateリポジトリのPagesはGitHubの有料プランが必要なので、今は手動実行だけにしている。
-# 公開するときは、リポジトリの Settings > Pages で Source を GitHub Actions にし、
-# 下の push のコメントを外す。
+# mainにpushするたびにサイトをビルドしてGitHub Pagesに公開する。
 name: Deploy site
 
 on:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
