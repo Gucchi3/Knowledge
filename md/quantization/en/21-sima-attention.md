@@ -8,15 +8,15 @@ The attention of a transformer uses softmax, which needs the exponential functio
 
 In normal attention:
 
-$$
+```math
 \mathrm{Attention}(Q, K, V) = \mathrm{softmax}\left(\frac{Q K^\top}{\sqrt{d}}\right) V
-$$
+```
 
-SimA drops softmax, and normalizes $Q$ and $K$ with the L1 norm (the sum of the absolute values) instead. On this page, each token (row) of $Q$ and of $K$ is normalized by its own L1 norm:
+SimA drops softmax, and normalizes $`Q`$ and $`K`$ with the L1 norm (the sum of the absolute values) instead. On this page, each token (row) of $`Q`$ and of $`K`$ is normalized by its own L1 norm:
 
-$$
+```math
 \hat{Q} = \frac{Q}{\lVert Q \rVert_1}, \qquad \hat{K} = \frac{K}{\lVert K \rVert_1}, \qquad \mathrm{SimA}(Q, K, V) = \hat{Q}\, \hat{K}^\top V
-$$
+```
 
 The normalization keeps the scores in a fixed range, which is what softmax did, so training stays stable. There is no exponential, and the division happens only once for each token.
 
@@ -32,12 +32,12 @@ All of this is integer math. One scale can be found for each token, or one for t
 
 ## The rest of the attention
 
-- $\hat{Q} \hat{K}^\top$ is an integer matrix product of codes. Its result is requantized to the format of the attention map, with $1/\sqrt{d}$ folded into the fixed part of the multiplier.
-- The attention map times $V$ is another integer matrix product, followed by a requantization.
+- $`\hat{Q} \hat{K}^\top`$ is an integer matrix product of codes. Its result is requantized to the format of the attention map, with $`1/\sqrt{d}`$ folded into the fixed part of the multiplier.
+- The attention map times $`V`$ is another integer matrix product, followed by a requantization.
 - A 1×1 conv projects the result, as in normal attention.
 
 ## Why it suits devices
 
 - No exponential, no lookup table for it, and no float division.
 - The whole block runs on the same integer multiply-add hardware as the convs.
-- Without softmax, the product can also be computed as $\hat{Q} (\hat{K}^\top V)$. For many tokens, this order is cheaper, since $\hat{K}^\top V$ is a small $d \times d$ matrix.
+- Without softmax, the product can also be computed as $`\hat{Q} (\hat{K}^\top V)`$. For many tokens, this order is cheaper, since $`\hat{K}^\top V`$ is a small $`d \times d`$ matrix.

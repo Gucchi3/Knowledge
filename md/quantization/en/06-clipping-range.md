@@ -2,7 +2,7 @@
 
 > How wide the range should be: the balance between rounding error and clipping error, and the common ways to choose it.
 
-The scale sets the range of a quantized tensor: with INT8 and a symmetric scale $S$, the range is $\pm 127\,S$. The edge of the range is often called the **clipping value** $\alpha$. How to choose it is one of the most important choices in quantization.
+The scale sets the range of a quantized tensor: with INT8 and a symmetric scale $`S`$, the range is $`\pm 127\,S`$. The edge of the range is often called the **clipping value** $`\alpha`$. How to choose it is one of the most important choices in quantization.
 
 ## The balance
 

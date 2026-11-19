@@ -6,25 +6,25 @@ Two codes can only be added as integers if they have the same scale. Normally, e
 
 ## The problem: adding two tensors
 
-A residual add computes $y = a + b$. With codes $q_a$ and $q_b$ and scales $S_a$ and $S_b$:
+A residual add computes $`y = a + b`$. With codes $`q_a`$ and $`q_b`$ and scales $`S_a`$ and $`S_b`$:
 
-$$
+```math
 y = S_a\, q_a + S_b\, q_b
-$$
+```
 
-If $S_a \ne S_b$, the codes cannot be added directly. The device must rescale at least one of them with a multiplier and a shift, and round, before it adds ([Residual add](19-residual-add.md)).
+If $`S_a \ne S_b`$, the codes cannot be added directly. The device must rescale at least one of them with a multiplier and a shift, and round, before it adds ([Residual add](19-residual-add.md)).
 
-If $S_a = S_b = S$, the add is just:
+If $`S_a = S_b = S`$, the add is just:
 
-$$
+```math
 q_y = q_a + q_b \quad \text{(then clamp to the format)}
-$$
+```
 
 One integer add, with no multiply, no shift, and no rounding.
 
 ## Scale sharing in a residual stream
 
-A transformer block adds its branches to a residual stream: $x + \mathrm{attention}(x)$, then $x + \mathrm{MLP}(x)$. With scale sharing, one scale covers the whole stream inside the block:
+A transformer block adds its branches to a residual stream: $`x + \mathrm{attention}(x)`$, then $`x + \mathrm{MLP}(x)`$. With scale sharing, one scale covers the whole stream inside the block:
 
 - the input of the block,
 - the output of the attention branch, and of the MLP branch,

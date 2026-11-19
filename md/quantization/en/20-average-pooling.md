@@ -6,19 +6,19 @@ Average pooling replaces each window of values with their average. Many small mo
 
 ## On codes
 
-The average of real values $S\,(q_i - Z)$ is $S$ times the average of the codes, minus $Z$. So the scale and the zero point do not change, and the device only averages the codes:
+The average of real values $`S\,(q_i - Z)`$ is $`S`$ times the average of the codes, minus $`Z`$. So the scale and the zero point do not change, and the device only averages the codes:
 
-$$
+```math
 q_y = \mathrm{round}\left(\frac{1}{N} \sum_{i=1}^{N} q_i\right)
-$$
+```
 
-$N$ is the number of values in the window, for example $8 \times 8 = 64$ for a global pool over an 8×8 map. The output keeps the scale and the zero point of the input.
+$`N`$ is the number of values in the window, for example $`8 \times 8 = 64`$ for a global pool over an 8×8 map. The output keeps the scale and the zero point of the input.
 
 ## Divide with integers
 
 - The sum of the codes fits easily in 32 bits.
-- If $N$ is a power of two, the division is a right shift. Add $N/2$ first to round to the nearest code ([Rounding](05-rounding.md)).
-- If not, the device divides with an integer division, or multiplies by $1/N$ written as a multiplier and a shift.
+- If $`N`$ is a power of two, the division is a right shift. Add $`N/2`$ first to round to the nearest code ([Rounding](05-rounding.md)).
+- If not, the device divides with an integer division, or multiplies by $`1/N`$ written as a multiplier and a shift.
 
 ## Rounding matters here
 

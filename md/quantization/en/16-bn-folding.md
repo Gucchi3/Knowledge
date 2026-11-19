@@ -8,17 +8,17 @@ After training, the parameters of a BatchNorm (BN) are fixed numbers. So a BN ri
 
 A linear layer and a BN after it compute:
 
-$$
+```math
 y = W x + b, \qquad z = \frac{\gamma}{\sigma}\,(y - \mu) + \beta, \qquad \sigma = \sqrt{v + \epsilon}
-$$
+```
 
-Here $\mu$ and $v$ are the running mean and variance of the BN, and $\gamma$ and $\beta$ are its learned scale and shift. Put $y$ into $z$:
+Here $`\mu`$ and $`v`$ are the running mean and variance of the BN, and $`\gamma`$ and $`\beta`$ are its learned scale and shift. Put $`y`$ into $`z`$:
 
-$$
+```math
 z = \underbrace{\frac{\gamma}{\sigma}\,W}_{W_{fold}}\, x \;+\; \underbrace{\frac{\gamma}{\sigma}\,(b - \mu) + \beta}_{b_{fold}}
-$$
+```
 
-So $z = W_{fold}\,x + b_{fold}$: one layer with new weights and a new bias. For a conv, $\gamma / \sigma$ scales each output channel of the weight.
+So $`z = W_{fold}\,x + b_{fold}`$: one layer with new weights and a new bias. For a conv, $`\gamma / \sigma`$ scales each output channel of the weight.
 
 ## Why fold before quantizing
 

@@ -6,7 +6,7 @@ A number format decides which values the codes can stand for. INT formats space 
 
 ## INT formats
 
-An INT format with $b$ bits has evenly spaced codes:
+An INT format with $`b`$ bits has evenly spaced codes:
 
 | Format | Codes |
 |---|---|
@@ -15,23 +15,23 @@ An INT format with $b$ bits has evenly spaced codes:
 | INT4 | −8 to 7 |
 | UINT4 | 0 to 15 |
 
-Every step is the same size $S$. This is [linear quantization](02-scale-zero-point.md).
+Every step is the same size $`S`$. This is [linear quantization](02-scale-zero-point.md).
 
 ## FP formats
 
 An FP (floating point) format splits its bits into a sign, an exponent, and a mantissa, like a small version of FP32. FP4 in the E2M1 layout has 1 sign bit, 2 exponent bits, and 1 mantissa bit. Its values are:
 
-$$
+```math
 0,\ 0.5,\ 1,\ 1.5,\ 2,\ 3,\ 4,\ 6 \quad \text{(and the same with a minus sign)}
-$$
+```
 
 The steps grow with the size of the value: 0.5 near 0, and 2 near the top. UFP4 (E2M2, no sign bit, one more mantissa bit) has 16 values from 0 to 7:
 
-$$
+```math
 0,\ 0.25,\ 0.5,\ 0.75,\ 1,\ 1.25,\ 1.5,\ 1.75,\ 2,\ 2.5,\ 3,\ 3.5,\ 4,\ 5,\ 6,\ 7
-$$
+```
 
-Like INT formats, an FP format is used with a scale: the real value is the format value times $S$.
+Like INT formats, an FP format is used with a scale: the real value is the format value times $`S`$.
 
 ## Why finer near 0 helps
 

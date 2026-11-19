@@ -8,17 +8,17 @@
 
 線形層とその後のBNは次を計算する。
 
-$$
+```math
 y = W x + b, \qquad z = \frac{\gamma}{\sigma}\,(y - \mu) + \beta, \qquad \sigma = \sqrt{v + \epsilon}
-$$
+```
 
-$\mu$ と $v$ はBNの移動平均と移動分散、$\gamma$ と $\beta$ は学習したスケールとシフトである。$y$ を $z$ に代入すると次のようになる。
+$`\mu`$ と $`v`$ はBNの移動平均と移動分散、$`\gamma`$ と $`\beta`$ は学習したスケールとシフトである。$`y`$ を $`z`$ に代入すると次のようになる。
 
-$$
+```math
 z = \underbrace{\frac{\gamma}{\sigma}\,W}_{W_{fold}}\, x \;+\; \underbrace{\frac{\gamma}{\sigma}\,(b - \mu) + \beta}_{b_{fold}}
-$$
+```
 
-つまり $z = W_{fold}\,x + b_{fold}$ で、新しい重みと新しいバイアスを持つ1つの層になる。畳み込みなら、$\gamma / \sigma$ が重みの出力チャネルごとに掛かる。
+つまり $`z = W_{fold}\,x + b_{fold}`$ で、新しい重みと新しいバイアスを持つ1つの層になる。畳み込みなら、$`\gamma / \sigma`$ が重みの出力チャネルごとに掛かる。
 
 ## 量子化の前に畳み込む理由
 

@@ -16,15 +16,15 @@ NVFP4 is a block format from NVIDIA. It has three parts:
 
 A real value is the element times its block scale times the tensor scale:
 
-$$
+```math
 r \approx x \cdot s_{block} \cdot t
-$$
+```
 
 Quantizing a block goes like this:
 
-1. The tensor scale fits the largest value of the tensor: $t = \max|r| / (6 \cdot 448)$.
-2. Each block scale fits the largest value of its block, rounded to E4M3: $s_{block} = \mathrm{E4M3}(\max_{block}|r| / 6 / t)$.
-3. Each element is rounded to FP4: $x = \mathrm{FP4}(r / (s_{block} \cdot t))$.
+1. The tensor scale fits the largest value of the tensor: $`t = \max|r| / (6 \cdot 448)`$.
+2. Each block scale fits the largest value of its block, rounded to E4M3: $`s_{block} = \mathrm{E4M3}(\max_{block}|r| / 6 / t)`$.
+3. Each element is rounded to FP4: $`x = \mathrm{FP4}(r / (s_{block} \cdot t))`$.
 
 So in every block, the largest value lands near 6, the top of FP4, and the small values get fine steps.
 
@@ -42,8 +42,8 @@ In a matrix product, each output adds up products along one axis (the input chan
 GPUs add up the blocks in FP32. A device with integer hardware can do it exactly with integers instead:
 
 1. **Elements.** Each FP4 value times 2 is a small integer: 0, ±1, ±2, ±3, ±4, ±6, ±8, ±12. The product of two of them is at most 144, and the sum of 16 products fits in 13 bits.
-2. **Block scales.** Each E4M3 scale is an integer mantissa $M$ (up to 15) times a power of two: $M \cdot 2^E$. The product of two block scales is $(M_a M_w) \cdot 2^{E_a + E_w}$.
-3. **One block.** Multiply the block sum by $M_a M_w$, and shift it left by $E_a + E_w$ plus a fixed offset. This is an integer.
+2. **Block scales.** Each E4M3 scale is an integer mantissa $`M`$ (up to 15) times a power of two: $`M \cdot 2^E`$. The product of two block scales is $`(M_a M_w) \cdot 2^{E_a + E_w}`$.
+3. **One block.** Multiply the block sum by $`M_a M_w`$, and shift it left by $`E_a + E_w`$ plus a fixed offset. This is an integer.
 4. **All the blocks.** Add the block values in one wide integer accumulator, with no rounding. For 1024 inputs, 54 bits are enough.
 5. **Output.** The tensor scales are fixed, so they go into the multiplier and shift of a normal [requantization](15-requantization.md), with one rounding at the end.
 

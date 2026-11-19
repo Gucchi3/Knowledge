@@ -6,43 +6,43 @@ Asymmetric quantization maps the range of the data, from its smallest value to i
 
 ## The rule
 
-$$
+```math
 S = \frac{r_{max} - r_{min}}{q_{max} - q_{min}}, \qquad Z = \mathrm{round}\left(q_{min} - \frac{r_{min}}{S}\right)
-$$
+```
 
 Quantize and dequantize as usual:
 
-$$
+```math
 q = \mathrm{clip}\left(\mathrm{round}\left(\frac{r}{S}\right) + Z,\ q_{min},\ q_{max}\right), \qquad \hat{r} = S\,(q - Z)
-$$
+```
 
 ## The same example
 
 Take the data from −400 to 1000 of [Symmetric quantization](03-symmetric.md), in INT8:
 
-- $S = 1400 / 255 \approx 5.49$
-- $Z = \mathrm{round}(-128 + 400 / 5.49) = \mathrm{round}(-55.1) = -55$
-- −400 becomes $\mathrm{round}(-72.9) - 55 = -128$, and 1000 becomes $\mathrm{round}(182.1) - 55 = 127$.
+- $`S = 1400 / 255 \approx 5.49`$
+- $`Z = \mathrm{round}(-128 + 400 / 5.49) = \mathrm{round}(-55.1) = -55`$
+- −400 becomes $`\mathrm{round}(-72.9) - 55 = -128`$, and 1000 becomes $`\mathrm{round}(182.1) - 55 = 127`$.
 
 Every code is now used. The step is 5.49 instead of 7.87, so the rounding error is about 30% smaller.
 
 ## What it costs
 
-The zero point must be taken out before two codes are multiplied. A layer with an asymmetric input $x$ and symmetric weights $w$ computes:
+The zero point must be taken out before two codes are multiplied. A layer with an asymmetric input $`x`$ and symmetric weights $`w`$ computes:
 
-$$
+```math
 \sum_i q_{w,i}\,(q_{x,i} - Z_x) = \sum_i q_{w,i}\, q_{x,i} \;-\; Z_x \sum_i q_{w,i}
-$$
+```
 
-The second term depends only on the weights and $Z_x$, so it is a constant for each output channel. A device can add it to the bias ahead of time, and pay nothing at run time.
+The second term depends only on the weights and $`Z_x`$, so it is a constant for each output channel. A device can add it to the bias ahead of time, and pay nothing at run time.
 
 If the weights are asymmetric too, one more term appears:
 
-$$
+```math
 \sum_i (q_{w,i} - Z_w)(q_{x,i} - Z_x) = \sum_i q_{w,i}\, q_{x,i} - Z_x \sum_i q_{w,i} - Z_w \sum_i q_{x,i} + n\,Z_w Z_x
-$$
+```
 
-The term $Z_w \sum_i q_{x,i}$ depends on the input, so the device must compute it for every input.
+The term $`Z_w \sum_i q_{x,i}`$ depends on the input, so the device must compute it for every input.
 
 > [!TIP]
 > This is why weights are usually symmetric, even when activations are not.
